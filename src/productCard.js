@@ -43,34 +43,39 @@ function ProductCard(props) {
         }
     }
 
-    //Imprimir en PDF
-    const generatePdf = async () => {
-        const doc = new jsPDF();
-        //Colocar una imagen en una esquina y con un tamaño de 50x50
-        
-        doc.text(`GRUPO 8`, 100, 10);
-        doc.text(`Integrantes:`, 10, 20);
-        doc.text(`Dayana Anchapaxi, Jonathan Cortez, Luciana Guerra`, 10, 30);
-
-        doc.text(`Nombre: ${product.name}`, 10, 50);
-        doc.text(`Descripción: ${product.description}`, 10, 60);
-        doc.text(`Precio: $${product.price}`, 10, 70);
-        doc.save(`producto-${product.name}.pdf`);
-    };
-    
-
+    //Almacenar productos en la tabla Buy sacando los datos de la tabla products
+    async function ProductBuy(product) {
+        try {
+            const { data, error } = await supabase
+                .from("buy")
+                .insert({
+                    name: product.name,
+                    description: product.description,
+                    price: product.price
+                })
+                .single()
+            
+            if (error) throw error;
+            window.location.reload();
+            alert("Producto comprado con exito \nNombre: "+product.name+"\nDescripcion: "+product.description+"\nPrecio: "+product.price);
+            
+        } catch (error) {
+            alert(error.message);
+        }
+    }
     return (
         <Card style={{width: "18rem"}}>
             <Card.Body>
                 { editing == false ?
                     <>
-                        <Card.Title>{product.name}</Card.Title>
-                        <Card.Text>{product.description}</Card.Text>
-                        <Card.Text>${product.price}</Card.Text>
+                        //Cambiar color de la letra
+                        
+                        <Card.Title style={{ color: '#ff0080' }}>{product.name}</Card.Title>
+                        <Card.Text style={{ color: '#005a9c' }}>{product.description}</Card.Text>
+                        <Card.Text style={{ color: '#ff0080' }}>${product.price}</Card.Text>
                         <Button variant="danger" onClick={() => deleteProduct()}>Eliminar</Button>
                         <Button variant="secondary" onClick={() => setEditing(true)}>Editar</Button>
-                        <Button onClick={generatePdf}>Imprimir PDF</Button>
-                        <Button onClick={ProductCard}>Carrito</Button>
+                        <Button variant="primary" onClick={() => ProductBuy(product)}>Comprar</Button>
 
                     </>
                 :
