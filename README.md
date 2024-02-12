@@ -18,11 +18,11 @@ los productos, las existencias, las transacciones, etc.
 
 2. Desarrolla la interfaz de usuario del sistema de inventario utilizando React. La interfaz debe 
 permitir realizar las siguientes acciones: 
-2.1 Ver la lista de productos disponibles en la bodega. 
-2.2 Agregar nuevos productos al inventario.
-2.3 Actualizar la información de los productos existentes. 
-2.4 Registrar las entradas y salidas de productos. 
-2.5 Generar informes en formato PDF.
+- [X] Ver la lista de productos disponibles en la bodega. 
+- [X] Agregar nuevos productos al inventario.
+- [X] Actualizar la información de los productos existentes. 
+- [X] Registrar las entradas y salidas de productos. 
+- [X] Generar informes en formato PDF.
 
 3. Implementa las funcionalidades necesarias para la gestión de inventario, como la búsqueda, 
 filtrado y ordenamiento de productos, así como la validación de datos.
@@ -34,9 +34,18 @@ Para poder verificar el funcionamiento del codigo debemos seguir los siguientes 
 
 ## Pasos para ejecutar el proyecto
 
-- Clonar este repositorio en tu computadora local con el comando `git clone
+- Clonar este repositorio en tu computadora local con el comando: 
+```
+git clone
+```
+- Instalar los  paquetes npm requeridos con el siguiente comando:
 
+```
+npm install
+npm i
+```
 
-1. git clone <URL>
-2. npm install  o  npm i
-3. npm run start
+- Corremos  el servidor de desarrollo con el siguiente comando:
+```
+npm run start
+```
