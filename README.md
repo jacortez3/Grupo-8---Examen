@@ -1,6 +1,9 @@
 # Grupo 8 - Examen
 
-Saludos
+### Integrantes
+ - Patricia Anchapaxi
+ - Jonathan Cortez
+ - Luciana Guerra
 
 ## Objetivo 
 El objetivo de esta evaluación práctica es demostrar la capacidad de los estudiantes para desarrollar 
@@ -29,6 +32,7 @@ funcionalidades funcionen correctamente y que la interfaz de usuario sea intuiti
 usar. 
 Para poder verificar el funcionamiento del codigo debemos seguir los siguientes pasos:
 
-1. ## git clone <URL>
-2. ## npm install  o  npm i
-3. ## npm run start
+## Pasos para ejecutar el proyecto
+1. git clone <URL>
+2. npm install  o  npm i
+3. npm run start
