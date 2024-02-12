@@ -34,18 +34,18 @@ Para poder verificar el funcionamiento del codigo debemos seguir los siguientes 
 
 ## Pasos para ejecutar el proyecto
 
-- Clonar este repositorio en tu computadora local con el comando: 
+1. Clonar este repositorio en tu computadora local con el comando: 
 ```
 git clone
 ```
-- Instalar los  paquetes npm requeridos con el siguiente comando:
+2. Instalar los  paquetes npm requeridos con el siguiente comando:
 
 ```
 npm install
 npm i
 ```
 
-- Corremos  el servidor de desarrollo con el siguiente comando:
+3. Corremos  el servidor de desarrollo con el siguiente comando:
 ```
 npm run start
 ```
