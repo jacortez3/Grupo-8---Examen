@@ -5,6 +5,9 @@
  - Jonathan Cortez
  - Luciana Guerra
 
+## Links
+En el siguiente enlace podemos verificar el funcionamiento con [Vercel](https://grupo-8-examen.vercel.app/)
+
 ## Objetivo 
 El objetivo de esta evaluación práctica es demostrar la capacidad de los estudiantes para desarrollar 
 un sistema de inventario funcional para una bodega utilizando tecnologías modernas como Firebase 
@@ -38,8 +41,8 @@ Para poder verificar el funcionamiento del codigo debemos seguir los siguientes 
 ```
 git clone
 ```
-2. Instalar los  paquetes npm requeridos con el siguiente comando:
 
+2. Instalar los  paquetes npm requeridos con el siguiente comando:
 ```
 npm install
 npm i
