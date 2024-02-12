@@ -18,15 +18,14 @@ function buyCard(props) {
             alert(error.message);
         }
     }
+
     return (
         <Card style={{width: "18rem"}}>
-            <Card.Body>
-              
+            <Card.Body>       
                 <Card.Title style={{ color: '#ff0080' }}>{buy.name}</Card.Title>
                 <Card.Text style={{ color: '#005a9c' }}>{buy.description}</Card.Text>
                 <Card.Text style={{ color: '#ff0080' }}>${buy.price}</Card.Text>
-                <Button variant="danger" onClick={() => deleteBuy()}>Eliminar Compra</Button>
-                
+                <Button variant="danger" onClick={() => deleteBuy()}>Eliminar Compra</Button>            
             </Card.Body>
         </Card>
     )

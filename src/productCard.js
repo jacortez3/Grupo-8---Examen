@@ -20,8 +20,7 @@ function ProductCard(props) {
                     description: description,
                     price: price
                 })
-                .eq("id", product.id)
-            
+                .eq("id", product.id)           
             if (error) throw error;
             window.location.reload();
         } catch (error) {
@@ -35,7 +34,6 @@ function ProductCard(props) {
                 .from("products")
                 .delete()
                 .eq("id", product.id)
-            
             if (error) throw error;
             window.location.reload();
         } catch (error) {
@@ -43,7 +41,6 @@ function ProductCard(props) {
         }
     }
 
-    //Almacenar productos en la tabla Buy sacando los datos de la tabla products
     async function ProductBuy(product) {
         try {
             const { data, error } = await supabase
@@ -53,8 +50,7 @@ function ProductCard(props) {
                     description: product.description,
                     price: product.price
                 })
-                .single()
-            
+                .single()    
             if (error) throw error;
             window.location.reload();
             alert("Producto comprado con exito \nNombre: "+product.name+"\nDescripcion: "+product.description+"\nPrecio: "+product.price);
@@ -63,20 +59,18 @@ function ProductCard(props) {
             alert(error.message);
         }
     }
+
     return (
         <Card style={{width: "18rem"}}>
             <Card.Body>
                 { editing == false ?
-                    <>
-                        //Cambiar color de la letra
-                        
+                    <>  
                         <Card.Title style={{ color: '#ff0080' }}>{product.name}</Card.Title>
                         <Card.Text style={{ color: '#005a9c' }}>{product.description}</Card.Text>
                         <Card.Text style={{ color: '#ff0080' }}>${product.price}</Card.Text>
                         <Button variant="danger" onClick={() => deleteProduct()}>Eliminar</Button>
                         <Button variant="secondary" onClick={() => setEditing(true)}>Editar</Button>
                         <Button variant="primary" onClick={() => ProductBuy(product)}>Comprar</Button>
-
                     </>
                 :
                     <>

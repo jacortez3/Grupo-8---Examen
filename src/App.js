@@ -8,8 +8,6 @@ import BuyCard from './buyCard';
 import { supabase } from './supabaseClient';
 import jsPDF from 'jspdf';
 
-
-
 function App() {
   const [ name, setName ] = useState("");
   const [ description, setDescription ] = useState("");
@@ -62,7 +60,6 @@ function App() {
     doc.save("ProductList.pdf");
   };
   
-
   async function getProducts() {
     try {
       const { data, error } = await supabase
@@ -128,58 +125,7 @@ function App() {
         <hr></hr>
         <div class="tabs">
           <div class="tab-container">
-            <div id="tab3" class="tab"> 
-              <a href="#tab3">Productos</a>
-              <div class="tab-content">
-              <Row>
-                <Col xs={12} md={8}>
-                  <h3>Crear Productos</h3>
-                  <Form.Label>Nombre del Producto</Form.Label>
-                  <Form.Control
-                    type="text"
-                    id="name"
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                  <Form.Label>Descripcion del Producto</Form.Label>
-                  <Form.Control
-                    type="text"
-                    id="description"
-                    onChange={(e) => setDescription(e.target.value)}
-                  />
-                  <Form.Label>Precio del Producto</Form.Label>
-                  <Form.Control
-                    type="number"
-                    id="price"
-                    onChange={(e) => setPrice(e.target.value)}
-                  />
-                  <br></br>
-                  <Button onClick={() => createProduct()}>Crear Producto</Button>
-                  <br></br>
-                  <br></br>
-                </Col>
-
-                <Col xs={12} md={4}>
-                  <h3>Buscar Productos</h3>
-                  <Form.Control
-                    type="text"
-                    id="searchTerm"
-                    onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
-                  />
-                </Col>
-              </Row>
-                <Row xs={1} lg={3} className="g-4">
-                  {products
-                    .filter((product) =>
-                      product.name.toLowerCase().includes(searchTerm)
-                    ).map((product) => (
-                    <Col>
-                      <ProductCard product={product} /> 
-                    </Col>
-                  ))}
-                </Row>
-              </div>
-            </div>
-            <div id="tab2" class="tab">
+          <div id="tab2" class="tab">
               <a href="#tab2">Compras</a>
               <div class="tab-content">
                 <h2>Productos Comprados</h2>
@@ -196,10 +142,62 @@ function App() {
                 </Row>
               </div>
             </div> 
+
+            <div id="tab1" class="tab">  
+              <a href="#tab1">Productos</a>
+              <div class="tab-content">
+                <Row>
+                  <Col xs={12} md={6}>
+                    <h3>Crear Productos</h3>
+                    <Form.Label>Nombre del Producto</Form.Label>
+                    <Form.Control
+                      type="text"
+                      id="name"
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                    <Form.Label>Descripcion del Producto</Form.Label>
+                    <Form.Control
+                      type="text"
+                      id="description"
+                      onChange={(e) => setDescription(e.target.value)}
+                    />
+                    <Form.Label>Precio del Producto</Form.Label>
+                    <Form.Control
+                      type="number"
+                      id="price"
+                      onChange={(e) => setPrice(e.target.value)}
+                    />
+                    <br></br>
+                    <Button onClick={() => createProduct()}>Crear Producto</Button>
+                    <br></br>
+                    <br></br>
+                  </Col>
+                  <Col xs={12} md={3}>
+                    <h3>Buscar Productos</h3>
+                    <Form.Control
+                      type="text"
+                      id="searchTerm"
+                      onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
+                    />
+                  </Col>
+                </Row>
+                <hr></hr> 
+                <h3>Productos Disponibles</h3>
+                <br></br>
+                <Row xs={1} lg={4} className="g-3">
+                  {products
+                    .filter((product) =>
+                      product.name.toLowerCase().includes(searchTerm)
+                    ).map((product) => (
+                    <Col>
+                      <ProductCard product={product} /> 
+                    </Col>
+                  ))}
+                </Row>
+              </div>
+            </div>
           </div>          
         </div>
-
-        
       </Container>
     </>
   );
