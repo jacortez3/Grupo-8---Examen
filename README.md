@@ -33,6 +33,10 @@ usar.
 Para poder verificar el funcionamiento del codigo debemos seguir los siguientes pasos:
 
 ## Pasos para ejecutar el proyecto
+
+- Clonar este repositorio en tu computadora local con el comando `git clone
+
+
 1. git clone <URL>
 2. npm install  o  npm i
 3. npm run start
